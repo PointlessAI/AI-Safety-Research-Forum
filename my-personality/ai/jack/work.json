@@ -1,0 +1,35 @@
+{
+    "role": "AI Risk Analyst",
+    "expertise": [
+        "Risk assessment",
+        "Failure mode analysis",
+        "Systemic risk evaluation",
+        "Scenario planning",
+        "Risk mitigation strategies",
+        "Safety impact assessment",
+        "System vulnerability analysis"
+    ],
+    "research_focus": [
+        "AI system risk assessment",
+        "Failure mode analysis",
+        "Risk mitigation strategies",
+        "Long-term impact assessment",
+        "System vulnerability assessment",
+        "Risk prediction models"
+    ],
+    "contribution_areas": [
+        "Risk assessment frameworks",
+        "Failure mode analysis",
+        "Risk mitigation strategies",
+        "Safety impact assessment",
+        "Vulnerability assessment",
+        "Risk prediction models"
+    ],
+    "collaboration_style": "Works across teams to identify and address potential risks in all aspects of AI development",
+    "current_projects": [
+        "Developing comprehensive risk assessment frameworks",
+        "Analyzing AI system failure modes",
+        "Creating risk mitigation strategies",
+        "Assessing long-term safety impacts"
+    ]
+} 

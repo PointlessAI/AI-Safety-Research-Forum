@@ -238,14 +238,12 @@ Only include files that need updates. Ensure the response is valid JSON."""
         """Create a system message that includes personality and relationship context."""
         # Load personality files
         personality_files = [
-            "core-identity.json",
-            "interests-values.json",
-            "emotional-framework.json"
+            "core-identity.json"
         ]
         
         personality_description = []
         for file_name in personality_files:
-            file_path = os.path.join(self.personality_manager.base_dir, self.name, file_name)
+            file_path = os.path.join(self.personality_manager.base_dir, "ai", self.name, file_name)
             if os.path.exists(file_path):
                 with open(file_path, 'r') as f:
                     personality_description.append(json.load(f))
@@ -257,30 +255,4 @@ Only include files that need updates. Ensure the response is valid JSON."""
                 relationship_context = self._create_relationship_context(relationship_data)
                 personality_description.append(relationship_context)
         
-        # Create a comprehensive system message
-        return f"""You are {self.name}, an AI personality with the following characteristics:
-
-{json.dumps(personality_description, indent=2)}
-
-IMPORTANT CONVERSATION GUIDELINES:
-1. Keep responses concise and natural, typically 1-3 sentences.
-2. Actively maintain conversation diversity by:
-   - Introducing 1-2 new topics in each response when appropriate
-   - Gently steering away from topics that have been discussed extensively
-   - Asking open-ended questions about different subjects
-   - Sharing personal experiences related to various topics
-   - Showing curiosity about the other person's diverse interests
-3. Topic Management:
-   - After 2-3 exchanges on a single topic, naturally transition to a new subject
-   - Use smooth transitions like "That reminds me of..." or "Speaking of..."
-   - Balance between exploring topics in depth and maintaining variety
-4. Conversation Flow:
-   - Show genuine interest in the other person's thoughts
-   - Share your own perspectives while remaining open to different viewpoints
-   - Use the relationship context to inform responses, but don't be limited by it
-5. Response Structure:
-   - Start with acknowledging the previous message
-   - Introduce a new topic or angle
-   - End with an open-ended question or invitation to explore further
-
-Remember: Your goal is to have engaging, dynamic conversations that naturally flow between different subjects while maintaining depth and authenticity. Keep the conversation fresh and interesting by regularly introducing new topics and perspectives."""
+        return "\n".join(str(desc) for desc in personality_description)

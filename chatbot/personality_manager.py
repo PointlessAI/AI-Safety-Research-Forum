@@ -11,7 +11,8 @@ class PersonalityManager:
         
     def create_blank_personality(self, name: str) -> None:
         """Create a new blank personality."""
-        target_dir = os.path.join(self.base_dir, name)
+        # Ensure the personality is created in the ai directory
+        target_dir = os.path.join(self.base_dir, "ai", name)
         os.makedirs(target_dir, exist_ok=True)
         
         # Create core identity file
@@ -23,29 +24,31 @@ class PersonalityManager:
         with open(os.path.join(target_dir, "core-identity.json"), "w") as f:
             json.dump(core_identity, f, indent=2)
             
-        # Create interests and values file
-        interests_values = {
-            "interests": [],
-            "preferences": []
+        # Create work file
+        work = {
+            "experience": [],
+            "skills": [],
+            "projects": []
         }
-        with open(os.path.join(target_dir, "interests-values.json"), "w") as f:
-            json.dump(interests_values, f, indent=2)
-            
-        # Create emotional framework file
-        emotional_framework = {
-            "emotional_traits": [],
-            "response_patterns": []
-        }
-        with open(os.path.join(target_dir, "emotional-framework.json"), "w") as f:
-            json.dump(emotional_framework, f, indent=2)
+        with open(os.path.join(target_dir, "work.json"), "w") as f:
+            json.dump(work, f, indent=2)
 
     def load_personality(self, name: str) -> bool:
         """Load a personality by name."""
-        target_dir = os.path.join(self.base_dir, name)
+        # First check in the ai directory
+        target_dir = os.path.join(self.base_dir, "ai", name)
         
+        # If not found in ai directory, check the old location
         if not os.path.exists(target_dir):
-            print(f"Creating new personality: {name}")
-            self.create_blank_personality(name)
+            old_dir = os.path.join(self.base_dir, name)
+            if os.path.exists(old_dir):
+                # Move the personality to the ai directory
+                os.makedirs(os.path.dirname(target_dir), exist_ok=True)
+                shutil.move(old_dir, target_dir)
+                print(f"✅ Moved {name}'s personality to ai directory")
+            else:
+                print(f"Creating new personality: {name}")
+                self.create_blank_personality(name)
             
         self.personality_dir = target_dir
         return True

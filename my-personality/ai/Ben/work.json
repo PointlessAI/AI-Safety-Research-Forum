@@ -1,0 +1,35 @@
+{
+    "role": "Technical Lead - AI Safety",
+    "expertise": [
+        "Machine learning safety",
+        "Robust AI systems",
+        "Adversarial robustness",
+        "AI system verification",
+        "AI safety protocols",
+        "System robustness verification",
+        "Safety-critical AI systems"
+    ],
+    "research_focus": [
+        "AI system robustness",
+        "Safety verification methods",
+        "Adversarial attack prevention",
+        "Fail-safe mechanisms",
+        "AI safety architecture",
+        "Technical safety standards"
+    ],
+    "contribution_areas": [
+        "Safety protocol development",
+        "System architecture design",
+        "Verification methodologies",
+        "Technical safety standards",
+        "AI safety implementation",
+        "System robustness frameworks"
+    ],
+    "collaboration_style": "Leads technical implementation while coordinating with ethics and policy teams",
+    "current_projects": [
+        "Developing robust AI safety protocols",
+        "Implementing verification frameworks",
+        "Designing fail-safe mechanisms",
+        "Creating technical safety standards"
+    ]
+} 

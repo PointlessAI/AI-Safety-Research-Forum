@@ -275,14 +275,12 @@ Only include files that need updates. Ensure the response is valid JSON."""
         """Create a system message that includes personality and relationship context."""
         # Load personality files
         personality_files = [
-            "core-identity.json",
-            "interests-values.json",
-            "emotional-framework.json"
+            "core-identity.json"
         ]
         
         personality_description = []
         for file_name in personality_files:
-            file_path = os.path.join(self.personality_manager.base_dir, self.name, file_name)
+            file_path = os.path.join(self.personality_manager.base_dir, "ai", self.name, file_name)
             if os.path.exists(file_path):
                 with open(file_path, 'r') as f:
                     personality_description.append(json.load(f))

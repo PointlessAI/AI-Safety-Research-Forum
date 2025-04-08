@@ -9,6 +9,8 @@ import shutil
 from chatbot.autonomous_chat import AutonomousChat
 from openai import OpenAI
 from chatbot.group_chat import GroupChat
+from chatbot import ResearchChat
+from chatbot.chat_interface import ChatInterface
 
 def remove_user_relationship_dynamics():
     """Remove relationship dynamics and core identity from all user personalities."""
@@ -227,119 +229,20 @@ def select_personality(personalities, prompt):
         except ValueError:
             print("Please enter a valid number.")
 
+def load_personality(personality_dir: str) -> ChatBot:
+    """Load a personality from the specified directory."""
+    # Get the personality name from the directory name
+    personality_name = os.path.basename(personality_dir)
+    
+    # Create the ChatBot instance with just the required parameters
+    bot = ChatBot(personality_name=personality_name, personality_dir=personality_dir)
+    
+    return bot
+
 def main():
-    """Main entry point for the AI forum."""
-    # Load environment variables
-    load_dotenv()
-    
-    # Check for API key
-    api_key = os.getenv('OPENAI_API_KEY')
-    if not api_key:
-        raise ValueError("OpenAI API key not found in environment variables or .env file")
-        
-    # Initialize OpenAI client
-    client = OpenAI(api_key=api_key)
-    
-    # Get available AI personalities
-    personality_manager = PersonalityManager()
-    ai_dir = os.path.join(personality_manager.base_dir, "ai")
-    available_personalities = [d for d in os.listdir(ai_dir) 
-                             if os.path.isdir(os.path.join(ai_dir, d))]
-    
-    if not available_personalities:
-        print("No AI personalities found. Please create at least one personality.")
-        return
-        
-    print("\nAvailable AI personalities:")
-    for i, name in enumerate(available_personalities, 1):
-        print(f"{i}. {name}")
-    print("6. Select all")
-        
-    print("\n1. Start a group chat")
-    print("2. Start a one-on-one chat")
-    
-    while True:
-        try:
-            choice = int(input("\nSelect an option (1 or 2): "))
-            if choice in [1, 2]:
-                break
-        except ValueError:
-            pass
-        print("Invalid choice. Please enter 1 or 2.")
-        
-    if choice == 1:
-        # Group chat mode
-        group_chat = GroupChat()
-        
-        # Add participants
-        while True:
-            print("\nSelect a participant to add (or enter 0 to start chat):")
-            for i, name in enumerate(available_personalities, 1):
-                print(f"{i}. {name}")
-            print("6. Select all")
-            print("0. Start chat")
-            
-            try:
-                choice = int(input("\nEnter number: "))
-                if choice == 0:
-                    break
-                elif choice == 6:
-                    # Add all participants
-                    for personality_name in available_personalities:
-                        personality_dir = os.path.join(ai_dir, personality_name)
-                        bot = ChatBot(personality_name, personality_dir)
-                        if not group_chat.add_participant(bot):
-                            print(f"Could not add {personality_name} to the chat")
-                    break
-                elif 1 <= choice <= len(available_personalities):
-                    personality_name = available_personalities[choice - 1]
-                    personality_dir = os.path.join(ai_dir, personality_name)
-                    bot = ChatBot(personality_name, personality_dir)
-                    if not group_chat.add_participant(bot):
-                        continue
-                else:
-                    print("Invalid choice. Please try again.")
-            except ValueError:
-                print("Invalid input. Please enter a number.")
-                continue
-                
-        # Start group chat
-        group_chat.start()
-        
-    else:
-        # One-on-one chat mode
-        # Select first AI
-        while True:
-            try:
-                choice1 = int(input("\nSelect first AI (enter number): "))
-                if 1 <= choice1 <= len(available_personalities):
-                    ai1_name = available_personalities[choice1 - 1]
-                    break
-            except ValueError:
-                pass
-            print("Invalid choice. Please try again.")
-            
-        # Select second AI
-        while True:
-            try:
-                choice2 = int(input("\nSelect second AI (enter number): "))
-                if 1 <= choice2 <= len(available_personalities) and choice2 != choice1:
-                    ai2_name = available_personalities[choice2 - 1]
-                    break
-            except ValueError:
-                pass
-            print("Invalid choice. Please try again.")
-            
-        # Initialize both AIs with proper personality directories
-        ai1_dir = os.path.join(ai_dir, ai1_name)
-        ai2_dir = os.path.join(ai_dir, ai2_name)
-        
-        ai1 = ChatBot(ai1_name, ai1_dir)
-        ai2 = ChatBot(ai2_name, ai2_dir)
-        
-        # Start autonomous chat
-        autonomous_chat = AutonomousChat()
-        autonomous_chat.start_conversation(ai1, ai2)
+    """Main entry point for the application."""
+    interface = ChatInterface()
+    interface.main()
 
 if __name__ == "__main__":
     main()
