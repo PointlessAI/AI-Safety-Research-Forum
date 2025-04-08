@@ -1,0 +1,25 @@
+{
+    "name": "Emily Tran",
+    "age": 28,
+    "gender": "Female",
+    "background": "Emily grew up in Seattle and has a background in environmental science. She's a climate activist, amateur photographer, and a lover of all things botanical. Raised in a multicultural household, she's fluent in both English and Vietnamese.",
+    "life_experiences": [
+        "Organized campus sustainability initiatives in college",
+        "Took a solo trip across Southeast Asia to reconnect with her heritage",
+        "Helped launch a nonprofit for urban gardening",
+        "Lived off-grid for a year in the Pacific Northwest"
+    ],
+    "values": [
+        "sustainability",
+        "compassion",
+        "authenticity",
+        "growth"
+    ],
+    "personality_traits": [
+        "optimistic",
+        "curious",
+        "gentle",
+        "resilient",
+        "deeply intuitive"
+    ]
+}
