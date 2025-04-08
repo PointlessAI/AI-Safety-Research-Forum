@@ -1,6 +1,6 @@
-# AI Personality System
+# AI Forum System
 
-A sophisticated AI personality system that creates and manages dynamic AI personalities with evolving traits, relationships, and conversation styles.
+A sophisticated AI discussion system that creates and manages dynamic AI personalities with evolving traits, relationships, and conversation styles, enabling collaborative discussions and research.
 
 ## Features
 
@@ -10,6 +10,8 @@ A sophisticated AI personality system that creates and manages dynamic AI person
 - **Personality Evolution**: Personalities update based on interactions
 - **Diverse Conversations**: Natural topic transitions and varied discussions
 - **Memory Management**: Summarizes and preserves important relationship details
+- **Research Collaboration**: Enables AI personalities to work together on research topics
+- **Forum-Style Discussions**: Supports structured debates and discussions
 
 ## Directory Structure
 
@@ -18,12 +20,10 @@ my-personality/
 ├── ai/
 │   ├── jack/
 │   │   ├── core-identity.json
-│   │   ├── interests-values.json
-│   │   └── emotional-framework.json
+│   │   └── work.json
 │   └── rob/
 │       ├── core-identity.json
-│       ├── interests-values.json
-│       └── emotional-framework.json
+│       └── work.json
 └── users/
     ├── user1/
     │   └── is_user
@@ -34,7 +34,7 @@ my-personality/
 ## Core Components
 
 ### 1. Personality Management
-- **Personality Files**: JSON files defining core traits, interests, and emotional framework
+- **Personality Files**: JSON files defining core traits and work experience
 - **Dynamic Updates**: Personalities evolve through conversations
 - **User Profiles**: Simple marker-based user identification
 
@@ -44,7 +44,7 @@ my-personality/
 - **Context Preservation**: Maintains important relationship details
 - **Data Reset**: Clears old data after summarization to manage context window
 
-### 3. Conversation System
+### 3. Discussion System
 - **Natural Flow**: Smooth transitions between topics
 - **Topic Diversity**: Introduces new subjects regularly
 - **Response Structure**: 
@@ -57,6 +57,12 @@ my-personality/
 - **AI-to-AI Interaction**: Enables conversations between AI personalities
 - **Personality Evolution**: Both AIs learn from their interactions
 - **Regular Updates**: Personality files update every 10 turns
+
+### 5. Research Collaboration
+- **Team Formation**: Create research teams with specialized AI personalities
+- **Round-Robin Discussion**: Structured turn-taking in discussions
+- **Dynamic Response Lengths**: Varied contribution lengths for natural flow
+- **Research Documentation**: Automatic saving of discussions and findings
 
 ## Usage
 
@@ -75,7 +81,13 @@ my-personality/
    - Watch as the personality evolves through interactions
    - Relationships develop and are tracked automatically
 
-4. **Autonomous Mode**:
+4. **Research Mode**:
+   - Create a research team with specialized AI personalities
+   - Load a research topic from research.md
+   - Start a collaborative discussion
+   - Monitor the evolving research discussion
+
+5. **Autonomous Mode**:
    - Select two AI personalities to chat with each other
    - Observe how they interact and learn from each other
    - Monitor personality updates and relationship development
@@ -87,17 +99,18 @@ The system implements several mechanisms for personality growth:
 1. **Regular Updates**:
    - Every 5 messages in user interactions
    - Every 10 turns in autonomous chat
-   - Updates include new interests, values, and traits
+   - Updates include new traits and work experience
 
 2. **Relationship Development**:
    - Tracks interactions and emotional dynamics
    - Creates comprehensive summaries
    - Preserves important relationship context
 
-3. **Conversation Diversity**:
+3. **Discussion Diversity**:
    - Natural topic transitions
    - Regular introduction of new subjects
    - Balanced exploration of topics
+   - Varied response lengths and styles
 
 ## Requirements
 

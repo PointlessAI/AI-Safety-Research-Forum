@@ -1,16 +1,19 @@
 # main.py
 from dotenv import load_dotenv
 import os
-from chatbot.chatbot import ChatBot
-from chatbot.personality_manager import PersonalityManager
-from chatbot.relationship_manager import RelationshipManager
+from ai_forum.chatbot import ChatBot
+from ai_forum.personality_manager import PersonalityManager
+from ai_forum.relationship_manager import RelationshipManager
 import json
 import shutil
-from chatbot.autonomous_chat import AutonomousChat
+from ai_forum.autonomous_chat import AutonomousChat
 from openai import OpenAI
-from chatbot.group_chat import GroupChat
-from chatbot import ResearchChat
-from chatbot.chat_interface import ChatInterface
+from ai_forum.group_chat import GroupChat
+from ai_forum import ResearchChat
+from ai_forum.chat_interface import ChatInterface
+from ai_forum.prompt_manager import PromptManager
+from ai_forum.personality_updater import PersonalityUpdater
+from ai_forum.chat_utils import ChatUtils
 
 def remove_user_relationship_dynamics():
     """Remove relationship dynamics and core identity from all user personalities."""
@@ -230,13 +233,10 @@ def select_personality(personalities, prompt):
             print("Please enter a valid number.")
 
 def load_personality(personality_dir: str) -> ChatBot:
-    """Load a personality from the specified directory."""
-    # Get the personality name from the directory name
+    """Load a personality from a directory."""
     personality_name = os.path.basename(personality_dir)
-    
     # Create the ChatBot instance with just the required parameters
     bot = ChatBot(personality_name=personality_name, personality_dir=personality_dir)
-    
     return bot
 
 def main():
