@@ -1,68 +1,68 @@
-# AI Forum System
+# AI Safety & Alignment Research Forum
 
-A sophisticated AI discussion system that creates and manages dynamic AI personalities with evolving traits, relationships, and conversation styles, enabling collaborative discussions and research.
+A collaborative research platform where AI agents engage in structured discussions about AI safety, alignment, and ethical considerations. The system enables specialized AI personalities to work together, debate ideas, and advance research in AI safety and alignment.
 
-## Features
+## Core Features
 
-- **Dynamic Personalities**: AI personalities that grow and evolve through interactions
-- **Relationship Management**: Tracks and develops relationships between AI and users
-- **Autonomous Conversations**: AI personalities can chat with each other
-- **Personality Evolution**: Personalities update based on interactions
-- **Diverse Conversations**: Natural topic transitions and varied discussions
-- **Memory Management**: Summarizes and preserves important relationship details
-- **Research Collaboration**: Enables AI personalities to work together on research topics
-- **Forum-Style Discussions**: Supports structured debates and discussions
+- **Specialized AI Researchers**: AI agents with distinct expertise in AI safety, ethics, and alignment
+- **Structured Research Discussions**: Round-robin format for systematic exploration of topics
+- **Dynamic Response System**: Varied contribution lengths and styles for natural discourse
+- **Research Documentation**: Automatic saving of discussions and findings
+- **Personality Evolution**: AI researchers that develop and refine their perspectives
+- **Collaborative Analysis**: Multiple AI agents working together on complex safety problems
+
+## Research Focus Areas
+
+- **AI Safety**: Technical approaches to ensuring AI systems behave as intended
+- **Alignment**: Methods for aligning AI systems with human values and goals
+- **Ethical Considerations**: Analysis of moral and societal implications
+- **Risk Assessment**: Evaluation of potential risks and mitigation strategies
+- **Policy Development**: Discussion of governance and regulatory frameworks
+- **Technical Solutions**: Exploration of specific safety mechanisms and architectures
 
 ## Directory Structure
 
 ```
 my-personality/
 ├── ai/
-│   ├── jack/
+│   ├── safety_researcher/
+│   │   ├── core-identity.json    # Research focus and expertise
+│   │   └── work.json             # Research experience and contributions
+│   ├── ethics_specialist/
 │   │   ├── core-identity.json
 │   │   └── work.json
-│   └── rob/
+│   └── alignment_expert/
 │       ├── core-identity.json
 │       └── work.json
-└── users/
-    ├── user1/
-    │   └── is_user
-    └── user2/
-        └── is_user
+└── research/
+    ├── research.md               # Current research topic
+    └── discussions/             # Archived research discussions
 ```
 
-## Core Components
+## Research Components
 
-### 1. Personality Management
-- **Personality Files**: JSON files defining core traits and work experience
-- **Dynamic Updates**: Personalities evolve through conversations
-- **User Profiles**: Simple marker-based user identification
+### 1. Research Team Formation
+- **Specialized Roles**: AI agents with specific research expertise
+- **Team Composition**: Balanced mix of safety, ethics, and technical experts
+- **Dynamic Collaboration**: Flexible team structures for different research needs
 
-### 2. Relationship System
-- **Relationship Tracking**: Monitors interactions and emotional dynamics
-- **Automatic Summarization**: Creates comprehensive summaries every 200 lines
-- **Context Preservation**: Maintains important relationship details
-- **Data Reset**: Clears old data after summarization to manage context window
+### 2. Discussion System
+- **Round-Robin Format**: Structured turn-taking in discussions
+- **Varied Contributions**: Different response lengths and styles
+- **Natural Flow**: Smooth transitions between research aspects
+- **Evidence-Based**: Focus on supporting arguments with research
 
-### 3. Discussion System
-- **Natural Flow**: Smooth transitions between topics
-- **Topic Diversity**: Introduces new subjects regularly
-- **Response Structure**: 
-  - Acknowledges previous messages
-  - Introduces new topics
-  - Ends with open-ended questions
-- **Personality Updates**: Occurs every 5 messages during interactions
+### 3. Research Documentation
+- **Automatic Archiving**: All discussions saved with timestamps
+- **Topic Tracking**: Research progress and key findings
+- **Citation Management**: References to relevant papers and studies
+- **Summary Generation**: Regular synthesis of research progress
 
-### 4. Autonomous Chat
-- **AI-to-AI Interaction**: Enables conversations between AI personalities
-- **Personality Evolution**: Both AIs learn from their interactions
-- **Regular Updates**: Personality files update every 10 turns
-
-### 5. Research Collaboration
-- **Team Formation**: Create research teams with specialized AI personalities
-- **Round-Robin Discussion**: Structured turn-taking in discussions
-- **Dynamic Response Lengths**: Varied contribution lengths for natural flow
-- **Research Documentation**: Automatic saving of discussions and findings
+### 4. Safety Analysis
+- **Risk Assessment**: Systematic evaluation of potential issues
+- **Solution Exploration**: Collaborative development of safety measures
+- **Ethical Review**: Consideration of moral implications
+- **Policy Implications**: Discussion of governance approaches
 
 ## Usage
 
@@ -71,68 +71,67 @@ my-personality/
    python main.py
    ```
 
-2. **Create/Select Personality**:
-   - Choose an existing AI personality or create a new user profile
-   - AI personalities are stored in the `ai/` directory
-   - User profiles are stored in the `users/` directory
+2. **Research Team Creation**:
+   - Select or create specialized AI researchers
+   - Define research focus areas
+   - Configure team composition
 
-3. **Start Chatting**:
-   - Chat with an AI personality
-   - Watch as the personality evolves through interactions
-   - Relationships develop and are tracked automatically
+3. **Research Topic Setup**:
+   - Load research topic into research.md
+   - Define specific research questions
+   - Set discussion parameters
 
-4. **Research Mode**:
-   - Create a research team with specialized AI personalities
-   - Load a research topic from research.md
-   - Start a collaborative discussion
-   - Monitor the evolving research discussion
+4. **Start Research Discussion**:
+   - Initiate round-robin discussion
+   - Monitor research progress
+   - Review generated insights
+   - Access discussion archives
 
-5. **Autonomous Mode**:
-   - Select two AI personalities to chat with each other
-   - Observe how they interact and learn from each other
-   - Monitor personality updates and relationship development
+5. **Analysis and Synthesis**:
+   - Review discussion outcomes
+   - Extract key findings
+   - Generate research summaries
+   - Plan next research steps
 
-## Personality Evolution
+## Research Process
 
-The system implements several mechanisms for personality growth:
+1. **Topic Introduction**:
+   - Present research question
+   - Define scope and objectives
+   - Establish discussion framework
 
-1. **Regular Updates**:
-   - Every 5 messages in user interactions
-   - Every 10 turns in autonomous chat
-   - Updates include new traits and work experience
+2. **Team Discussion**:
+   - Round-robin contributions
+   - Evidence-based arguments
+   - Cross-disciplinary insights
+   - Solution exploration
 
-2. **Relationship Development**:
-   - Tracks interactions and emotional dynamics
-   - Creates comprehensive summaries
-   - Preserves important relationship context
+3. **Analysis Phase**:
+   - Risk assessment
+   - Ethical consideration
+   - Technical feasibility
+   - Policy implications
 
-3. **Discussion Diversity**:
-   - Natural topic transitions
-   - Regular introduction of new subjects
-   - Balanced exploration of topics
-   - Varied response lengths and styles
+4. **Synthesis**:
+   - Key findings summary
+   - Research recommendations
+   - Next steps planning
+   - Documentation generation
 
 ## Requirements
 
 - Python 3.8+
-- OpenAI API key
-- Required packages: openai, python-dotenv
+- OpenAI API access
+- Sufficient token limits for research discussions
+- Storage space for research archives
 
-## Installation
+## Contributing
 
-1. Clone the repository
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Create a `.env` file with your OpenAI API key:
-   ```
-   OPENAI_API_KEY=your_api_key_here
-   ```
+This project welcomes contributions focused on:
+- AI safety research methodologies
+- Alignment approaches
+- Ethical frameworks
+- Technical safety mechanisms
+- Policy development
 
-## Notes
-
-- The system uses GPT-4o-mini for all AI interactions
-- Relationship data is summarized every 200 lines to manage context
-- User profiles are minimal, focusing on relationship context
-- AI personalities maintain comprehensive personality files
+Please ensure contributions align with the project's focus on AI safety and alignment research.
